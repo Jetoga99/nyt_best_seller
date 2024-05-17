@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYT Best Sellers</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">NYT Best Sellers</h1>
+        <div class="form-group">
+            <label for="lista">Seleccione la lista de Best Sellers:</label>
+            <select id="lista" class="form-control" onchange="actualizarFechas()"></select>
+        </div>
+        
+        <div class="form-group">
+            <label for="fecha">Seleccione la fecha:</label>
+            <select id="fecha" class="form-control"></select>
+        </div>
+        <button class="btn btn-primary mb-4" onclick="consultarBestSellers()">Consultar</button>
+
+        <div class="form-group">
+            <label for="edad">Seleccione el grupo de edad:</label>
+            <select id="edad" class="form-control" onchange="filtrarLibros()"></select>
+        </div>
+        
+        <div class="form-group">
+            <label for="precio">Seleccione el rango de precio:</label>
+            <select id="precio" class="form-control" onchange="filtrarLibros()"></select>
+        </div>
+        
+        
+        <table class="table table-bordered table-striped" id="resultados">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Description</th>
+                    <th>Review</th>
+                    <th>Buy Link</th>
+                    <th>Age Group</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
